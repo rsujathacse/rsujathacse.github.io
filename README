@@ -1,0 +1,47 @@
+# Sujatha R – Search & AI Technical Writing Portfolio
+
+This repository contains the source code for my developer-focused documentation portfolio built with Docusaurus and deployed via GitHub Pages.
+
+## 👩🏽‍💻 About Me
+
+I am a Senior Technical Writer specializing in:
+
+- Search systems and indexing
+- Vector embeddings and semantic search
+- Retrieval-Augmented Generation (RAG)
+- API documentation for RESTful services
+- Documentation architecture and developer experience
+
+I design documentation that bridges core engine engineering and real-world developer implementation.
+
+---
+
+## 📚 What This Portfolio Demonstrates
+
+This site is structured like a production documentation system and showcases:
+
+- Conceptual guides (Search fundamentals, Vector search, RAG)
+- API documentation samples (request/response schema, cURL examples)
+- Architecture deep dives (Indexing, mapping, scoring)
+- Tutorials combining search + AI workflows
+
+The goal is to reflect a "docs-as-product" mindset.
+
+---
+
+## 🛠 Tech Stack
+
+- Docusaurus (documentation framework)
+- Markdown (docs-as-code workflow)
+- Git & GitHub (version control)
+- GitHub Pages (hosting)
+
+---
+
+## 🚀 Local Development
+
+If running locally:
+
+```bash
+npm install
+npm run start
