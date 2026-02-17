@@ -1,6 +1,35 @@
 ---
-title: Docs
+title: Documentation
 sidebar_position: 1
 ---
 
-Conceptual guides and tutorials that demonstrate developer-first documentation.
+# Documentation
+
+Conceptual guides and implementation-focused tutorials.
+
+<div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
+
+  <div style={{ 
+    border: "1px solid #e3e3e3",
+    borderRadius: "12px",
+    padding: "20px",
+    width: "320px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
+  }}>
+    <img 
+      src="/img/Elasticsearch.png"
+      alt="Elasticsearch Hybrid Search"
+      style={{ width: "100%", borderRadius: "8px", marginBottom: "12px" }}
+    />
+    <h3>Vector Search and Hybrid Retrieval in Elasticsearch</h3>
+    <p>
+      Production-focused implementation of BM25 + dense vector hybrid search 
+      using Elasticsearch.
+    </p>
+    <a href="/docs/vector-search-hybrid" 
+       style={{ color: "#0f62fe", fontWeight: "600" }}>
+      Read article →
+    </a>
+  </div>
+
+</div>
