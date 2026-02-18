@@ -1,14 +1,14 @@
 ---
 title: Designing and Documenting a Secure Security Event Ingestion API
 sidebar_position: 1
-description: Build and document a production-ready security event ingestion API with authentication, rate limiting, idempotency, and PostgreSQL storage.
+description: Build and document a production-ready security event ingestion API with authentication, rate limiting, idempotency, and durable storage using FastAPI.
 ---
 
 # Designing and Documenting a Secure Security Event Ingestion API
 
-Security teams need a reliable way to collect events from applications, services, and infrastructure. Then query those events for investigations, alerting, and audit trails.
+Security teams need a reliable way to collect events from applications, services, and infrastructure — and later query those events for investigations, alerting, and audit trails.
 
-A **security event ingestion API** accepts structured event payloads over HTTP, validates them, stores them durably, and makes them easy to troubleshoot when things go wrong.
+A **security event ingestion API** accepts structured event payloads over HTTP, validates them, stores them durably, and makes them easy to troubleshoot when things go wrong. 
 
 This guide walks through building a production-minded ingestion API with:
 
@@ -16,10 +16,13 @@ This guide walks through building a production-minded ingestion API with:
 - Authentication using API keys
 - Rate limiting
 - Idempotency support
-- PostgreSQL storage
-- CLI-based testing (`curl`, `jq`)
-- OpenAPI-ready documentation
+- Durable event storage (SQLite for local development)
+- CLI-based testing (`curl`)
+- OpenAPI-ready documentation (Swagger UI)
 
+In this article, we design and implement:
+ - A secure event ingestion API using FastAPI. We define a strict event schema, enforce authentication with API keys, apply rate limiting to protect the endpoint, and persist events to a local database. 
+ - We then document the API using OpenAPI (Swagger UI) and demonstrate how to test it via both CLI and interactive documentation.
 ---
 
 ## Prerequisites
@@ -31,31 +34,27 @@ This guide walks through building a production-minded ingestion API with:
 
 ### Tools
 
-- Docker + Docker Compose
 - Python 3.11+
 - Git
 - curl
-- jq (optional but recommended)
 
-### What you will build?
-By the end of this guide, you will have implemented the following API endpoints:
+---
+
+## What You Will Build
+
+By the end of this guide, you will have implemented the following endpoints:
 
 | Endpoint | Purpose |
 |-----------|----------|
 | `POST /v1/events` | Ingest a single security event |
-| `POST /v1/events:batch` | Ingest multiple events |
-| `GET /v1/events/{event_id}` | Retrieve a stored event |
 | `GET /healthz` | Health check |
 
 ---
 
-## Project structure
-
-The following directory layout keeps API logic modular and production-ready:
+## Project Structure
 
 ```bash
 siem-event-api/
-├── docker-compose.yml
 └── app/
     ├── main.py
     ├── schemas.py
@@ -63,14 +62,25 @@ siem-event-api/
     ├── auth.py
     └── rate_limit.py
 ```
----
+> **Note — Development environment**
+>
+> This API was implemented and tested inside **GitHub Codespaces**, which automatically forwards application ports and provides a cloud-based development environment.
+>
+> You can alternatively run this project in:
+>
+> - A local development environment (macOS, Linux, Windows with Python installed)
+> - A virtual environment using `venv` or Conda
+> - Docker (containerized FastAPI + database setup)
+> - A cloud VM (e.g., AWS EC2, Google Compute Engine, DigitalOcean Droplet)
+> - A managed container platform (e.g., Google Cloud Run, DigitalOcean, AWS ECS, Azure Container Apps)
+>
+> The core application logic remains unchanged across environments. But the hosting setup differs.
+
 
 # Implementation
-
 ## Step 1: Define the event schema
 
 Create `app/schemas.py`:
-
 ```python
 from pydantic import BaseModel, Field
 from typing import Dict, Any, Optional, Literal
@@ -90,93 +100,52 @@ class SecurityEvent(BaseModel):
     ip: Optional[str] = None
     user_agent: Optional[str] = None
     metadata: Dict[str, Any] = {}
-   ``` 
-## Step 2: Docker compose setup
-
-
-Create `docker-compose.yml`:
-```yaml
-services:
-  db:
-    image: postgres:16
-    environment:
-      POSTGRES_USER: siem
-      POSTGRES_PASSWORD: siem_pass
-      POSTGRES_DB: siem_events
-    ports:
-      - "5432:5432"
-
-  api:
-    image: python:3.11-slim
-    working_dir: /app
-    volumes:
-      - ./app:/app
-    command: bash -lc "pip install fastapi uvicorn psycopg[binary] pydantic && uvicorn main:app --host 0.0.0.0 --port 8000"
-    environment:
-      DATABASE_URL: postgresql://siem:siem_pass@db:5432/siem_events
-      INGEST_API_KEY: "change-me"
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
 ```
-Run
-```bash
-docker compose up -d
-docker compose ps
-```
-![Docker services running](/img/seim/docker.png)
+## Step 2: Database initialization (SQLite)
 
-## Step 3: Database initialization
+For local development, we use SQLite for simplicity.
 
 Create `app/db.py`:
 ```python
-import os
-import psycopg
+import sqlite3
 
-DATABASE_URL = os.environ["DATABASE_URL"]
+DATABASE = "events.db"
 
 def get_conn():
-    return psycopg.connect(DATABASE_URL)
+    return sqlite3.connect(DATABASE)
 
 def init_db():
     with get_conn() as conn:
-        with conn.cursor() as cur:
-            cur.execute("""
-            CREATE TABLE IF NOT EXISTS events (
-              event_id TEXT PRIMARY KEY,
-              timestamp TIMESTAMPTZ NOT NULL,
-              source TEXT NOT NULL,
-              environment TEXT NOT NULL,
-              severity TEXT NOT NULL,
-              category TEXT NOT NULL,
-              action TEXT NOT NULL,
-              actor JSONB NOT NULL,
-              target JSONB,
-              ip TEXT,
-              user_agent TEXT,
-              metadata JSONB NOT NULL,
-              received_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-              request_id TEXT,
-              idempotency_key TEXT
-            );
-            """)
+        conn.execute("""
+        CREATE TABLE IF NOT EXISTS events (
+            event_id TEXT PRIMARY KEY,
+            timestamp TEXT NOT NULL,
+            source TEXT NOT NULL,
+            environment TEXT NOT NULL,
+            severity TEXT NOT NULL,
+            category TEXT NOT NULL,
+            action TEXT NOT NULL,
+            actor TEXT NOT NULL,
+            metadata TEXT NOT NULL,
+            request_id TEXT,
+            idempotency_key TEXT
+        );
+        """)
 ```
-## Step 4: API key authentication
+## Step 3: API key authentication
 
 Create `app/auth.py`:
 ```python
 import os
 from fastapi import Header, HTTPException
 
-API_KEY = os.environ.get("INGEST_API_KEY")
+API_KEY = "change-me"
 
 def require_api_key(x_api_key: str = Header(default="")):
     if x_api_key != API_KEY:
         raise HTTPException(status_code=401, detail="Invalid or missing API key.")
 ```
-## Step 5: Rate limiting
-
+## Step 4: Rate limiting
 Create `app/rate_limit.py`:
 ```python
 import time
@@ -199,12 +168,14 @@ def rate_limit(key: str):
     if count > MAX_REQ:
         raise HTTPException(status_code=429, detail="Rate limit exceeded.")
 ```
-## Step 6: API implementation
+## Step 5: API Implementation
+
 Create `app/main.py`:
 ```python
-from fastapi import FastAPI, Depends, Header, HTTPException
-from typing import List, Optional
+from fastapi import FastAPI, Depends, Header
+from typing import Optional
 import uuid
+import json
 
 from schemas import SecurityEvent
 from db import init_db, get_conn
@@ -232,79 +203,109 @@ def ingest_event(
     request_id = x_request_id or str(uuid.uuid4())
 
     with get_conn() as conn:
-        with conn.cursor() as cur:
-            cur.execute("""
-                INSERT INTO events (
-                  event_id, timestamp, source, environment,
-                  severity, category, action, actor,
-                  target, ip, user_agent, metadata,
-                  request_id, idempotency_key
-                )
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-                ON CONFLICT (event_id) DO NOTHING
-            """, (
-                event.event_id,
-                event.timestamp,
-                event.source,
-                event.environment,
-                event.severity,
-                event.category,
-                event.action,
-                event.actor,
-                event.target,
-                event.ip,
-                event.user_agent,
-                event.metadata,
-                request_id,
-                idempotency_key
-            ))
+        conn.execute("""
+            INSERT OR IGNORE INTO events (
+                event_id, timestamp, source, environment,
+                severity, category, action, actor, metadata,
+                request_id, idempotency_key
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            event.event_id,
+            event.timestamp.isoformat(),
+            event.source,
+            event.environment,
+            event.severity,
+            event.category,
+            event.action,
+            json.dumps(event.actor),
+            json.dumps(event.metadata),
+            request_id,
+            idempotency_key
+        ))
 
     return {"status": "ok", "event_id": event.event_id, "request_id": request_id}
 ```
-# API reference
+# Running the API
 
-## Base URL
-http://localhost:8000
-
----
-
-## Authentication
-
-All ingestion endpoints require the following header:
-X-API-Key: <your_api_key>
-
-
-Requests without a valid API key return:
-
-- **401 Unauthorized**
-
----
-
-## POST /v1/events
-
-Ingest a single security event.
-
-### Success response
-
-```json
-{
-  "status": "ok",
-  "event_id": "uuid",
-  "request_id": "req-id"
-}
-```
-## Tutorial: Ingest your first event
-
-### Step 1: Set your API key
+Start the server:
 
 ```bash
-export API_KEY="change-me"
+uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
-### Step 2: Send a request
-```curl
+Once executed, Uvicorn starts the FastAPI application and listens on port 8000.
+
+---
+
+![API startup success](/img/seim/uvicorn.png)
+
+*Uvicorn startup logs confirming the API server is running.*
+
+Uvicorn loads the FastAPI application defined in app.main:app and binds it to port 8000. FastAPI is an ASGI application. Uvicorn acts as the ASGI server that handles incoming HTTP requests.
+
+# API Reference
+
+## Base URL
+
+When running inside GitHub Codespaces, the API is exposed via a forwarded HTTPS URL. This forwarded URL securely exposes port 8000 to the browser.
+
+Example: https://`<codespace-name>`-8000.app.github.dev
+
+## Swagger UI
+Visit: https://`<codespace-name>`-8000.app.github.dev/docs
+
+FastAPI automatically generates interactive OpenAPI documentation using Swagger UI.
+
+![Swagger UI overview](/img/seim/swagger-overview.png)
+
+*Interactive OpenAPI documentation generated automatically by FastAPI in a GitHub Codespaces environment.*
+
+- Swagger UI loaded successfully
+
+- API endpoints listed and interactive
+
+<strong>What we can we see in the SwaggerUI?</strong>
+- API title
+
+- `GET /healthz`
+
+- `POST /v1/events`
+
+- Schema definitions
+
+When Uvicorn binds to 0.0.0.0:8000, Codespaces detects the open port and automatically:
+
+- Forwards it
+
+- Assigns a public HTTPS URL
+
+- Secures it behind GitHub authentication
+
+Codespaces automatically forwards ports to allow browser access to services running inside the container. This replaces localhost with a secure external URL.
+## Health Check
+
+When running inside GitHub Codespaces, the API is exposed via a forwarded HTTPS URL.
+
+To verify that the API is reachable, use the forwarded domain:
+
+```bash
+curl https://`<codespace-name>`-8000.app.github.dev/healthz
+```
+Example:
+```bash
+curl https://silver-invention-5gg44rw9956cv4v-8000.app.github.dev/healthz
+```
+
+The `/healthz` endpoint returns a simple JSON response. Health endpoints allow monitoring systems or load balancers to verify service availability. If the API is running correctly, the response will be:
+![Json status ok image](/img/seim/json-status-ok.png)
+
+## Ingest an Event via CLI
+
+Send a structured security event to the ingestion endpoint:
+```bash
 curl -X POST http://localhost:8000/v1/events \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: $API_KEY" \
+  -H "X-API-Key: change-me" \
   -d '{
     "timestamp":"2026-02-17T10:10:10Z",
     "source":"auth-service",
@@ -315,19 +316,65 @@ curl -X POST http://localhost:8000/v1/events \
     "actor":{"type":"user","id":"u-123"},
     "metadata":{}
   }'
-  ```
-  ## Error model
+```
+The API:
 
+- Validates the request body using Pydantic.
+
+- Checks the API key.
+
+- Applies rate limiting.
+
+- Inserts the event into the database.
+
+The `POST /v1/events` route processes incoming events and ensures:
+
+- Schema correctness
+- Authentication enforcement
+- Controlled request rate
+
+- Durable storage
+
+![CLI event ingestion image](/img/seim/200-event-id.png)
+
+*Successful event ingestion using curl.*
+
+## Using Swagger “Try it out”
+
+Swagger allows interactive testing without using curl. The same POST request is executed via the browser. Swagger UI uses the OpenAPI spec to generate a form-based interface that sends HTTP requests.
+
+
+![Swagger try it out payload image](/img/seim/try-it-out-payload.png)
+
+*Submitting a structured event payload directly from Swagger UI.*
+## Successful Response
+
+After executing via Swagger, the server processes the event and returns a structured success response.
+
+
+![Swagger 200 response image](/img/seim/200-event-id.png)
+
+*Successful 200 OK response including event_id.*
+
+## Data Persistence
+
+After successful ingestion:
+```bash
+ls -l
+```
+SQLite creates events.db in the project directory. The database is initialized on application startup and writes events to disk. Confirmation that events are stored durably: 
+![Database file created](/img/seim/events.db-created.png)
+
+*SQLite database file created locally after event ingestion.*
+
+## Error model 
 | Status code | Meaning |
-|-------------|----------|
-| 401 | Unauthorized |
-| 422 | Validation Error |
-| 429 | Rate Limit Exceeded |
-
+|-------------|----------| 
+|401 | Unauthorized | 
+|422 | Validation Error | 
+|429 | Rate Limit Exceeded | 
 ---
-
 ## OpenAPI snippet
-
 ```yaml
 paths:
   /v1/events:
@@ -339,11 +386,79 @@ paths:
         '401':
           description: Unauthorized
 ```
-## Operational considerations
+## Operational considerations 
 
-| Step | Description |
-|-----------|--------------|
-| Use idempotency keys for safe retries | Prevents duplicate event ingestion if the client retries the same request due to network failures or timeouts. Ensures safe reprocessing without creating multiple records. |
-| Log request IDs for traceability | Enables end-to-end request tracking across systems, making debugging, auditing, and incident investigation easier. |
-| Apply proper indexing for high-volume environments | Improves query performance for frequently filtered fields (e.g., timestamp, category, severity), ensuring efficient searches at scale. |
+| Step | Description | 
+|-----------|--------------| 
+| Use idempotency keys for safe retries | Prevents duplicate event ingestion if the client retries the same request due to network failures or timeouts. Ensures safe reprocessing without creating multiple records. | 
+| Log request IDs for traceability | Enables end-to-end request tracking across systems, making debugging, auditing, and incident investigation easier. | | Apply proper indexing for high-volume environments | Improves query performance for frequently filtered fields (e.g., timestamp, category, severity), ensuring efficient searches at scale. | 
 | Replace in-memory rate limiting with Redis in production | Moves rate limiting to a distributed store so limits are enforced consistently across multiple API instances in horizontally scaled environments. |
+
+# Future scope
+
+While this guide focuses on local development and architectural clarity, these below improvement points outline the path toward building a production-ready security event ingestion system.
+
+## Security enhancements
+
+- **Replace API keys with OAuth2 or mTLS**  
+  Implement token-based authentication or mutual TLS for stronger service-to-service trust.
+
+- **Role-Based Access Control (RBAC)**  
+  Restrict event ingestion and retrieval based on service identity or tenant permissions.
+
+- **Request Signature Validation**  
+  Add HMAC or signed payload verification to prevent tampering and replay attacks.
+
+- **TLS Enforcement and Certificate Management**  
+  Ensure encrypted communication using managed certificates in production.
+
+## Scalability improvements
+
+- **Replace SQLite with a Production Database**  
+  Use PostgreSQL, a managed database service, or distributed storage for higher durability and performance.
+
+- **Introduce Message Queues**  
+  Add Kafka, Pub/Sub, or similar systems to buffer and stream high-volume events.
+
+- **Distributed Rate Limiting**  
+  Replace in-memory rate limiting with Redis or an API gateway-based limiter.
+
+- **Horizontal Scaling**  
+  Deploy behind a load balancer or container orchestration platform such as Kubernetes.
+
+
+## Observability and monitoring
+
+- **Structured Logging**  
+  Add structured logs for ingestion activity and failures.
+
+- **Metrics and Monitoring**  
+  Expose Prometheus metrics for ingestion rates, error rates, and latency.
+
+- **Audit Logging**  
+  Maintain immutable audit trails for compliance and forensic investigations.
+
+
+
+## Functional extensions
+
+- **Event Retrieval APIs**  
+  Implement filtered search endpoints for querying events by severity, category, or time range.
+
+- **Schema Versioning**  
+  Support backward-compatible schema evolution for event payloads.
+
+- **Multi-Tenant Isolation**  
+  Separate event storage and access control across tenants or customers.
+
+
+
+## Deployment enhancements
+- **Containerization**  
+  Package the application using Docker for portable deployment.
+
+- **Cloud Deployment**  
+  Deploy to managed platforms such as Google Cloud Run, AWS ECS, or DigitalOcean App Platform.
+
+- **Infrastructure as Code (IaC)**  
+  Use Terraform or similar tools to provision production infrastructure.

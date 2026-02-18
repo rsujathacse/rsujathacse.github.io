@@ -2,9 +2,9 @@
 title: APIs
 sidebar_position: 1
 ---
-# Documentation
+# API guides
 
-Conceptual guides and implementation-focused tutorials.
+API tutorials: endpoints, schemas, auth, errors, and examples.
 
 <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
 
@@ -16,20 +16,19 @@ Conceptual guides and implementation-focused tutorials.
     boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
   }}>
     <img 
-      src="/img/Elasticsearch.png"
+      src="/img/seim/swagger-overview.png"
       alt="API image"
       style={{ width: "100%", borderRadius: "8px", marginBottom: "12px" }}
     />
-    <h3>Vector Search and Hybrid Retrieval in Elasticsearch</h3>
+    <h3>Designing and Documenting a Secure Security Event Ingestion API</h3>
     <p>
-      Production-focused implementation of BM25 + dense vector hybrid search 
-      using Elasticsearch.
+      Design a secure event ingestion API with API key authentication, schema validation, rate limiting, and durable storage. Built and documented using FastAPI and OpenAPI.
     </p>
-    <a href="/docs/secure-security-event-ingestion-api" 
+    <a href="/apis/secure-security-event-ingestion-api" 
        style={{ color: "#0f62fe", fontWeight: "600" }}>
       Read article →
     </a>
   </div>
 
 </div>
-API documentation samples: endpoints, schemas, auth, errors, and examples.
+
