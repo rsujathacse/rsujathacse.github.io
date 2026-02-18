@@ -129,7 +129,7 @@ const config = {
               {label: 'APIs', to: '/apis/intro'},
               {label: 'Architecture', to: '/architecture/intro'},
               {label: 'AI/ML Docs', to: '/aiml/intro'},
-              {label: 'Content Strategy', to: '/strategy/intro'},
+              {label: 'Content Strategy', to: '/content-strategy',  position: 'left',},
               {label: 'About', to: '/about'},
             ],
           },

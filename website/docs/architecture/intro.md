@@ -2,8 +2,7 @@
 title: Architecture
 sidebar_position: 1
 ---
-
-## Featured work
+Deep-dive architectural docs with system design, observability pipelines, data flow, and infrastructure patterns.
 
 <div className="card margin-bottom--lg">
   <div className="card__body">
