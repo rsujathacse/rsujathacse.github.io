@@ -1,58 +1,67 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-<div style={{ maxWidth: "860px", margin: "20px auto 0", lineHeight: 1.6 }}>
-  <p style={{ marginBottom: "14px", fontSize: "18px", textAlign: "left" }}>
-    I’m a Senior Technical Writer with 10+ years of experience building
-    developer-first documentation across cloud, APIs, and AI/ML workflows. I
-    partner with engineering and product teams to ship clear, task-driven
-    docs—reference guides, conceptual explainers, and architecture
-    narratives—that reduce support load and help users succeed faster.
-  </p>
-
-  {/* ✅ MAIN CONTENT // <p style={{ margin: 0, fontSize: "16px", opacity: 0.95 }}>
-    <strong>Tech stack:</strong> Docs-as-Code tools | Markdown-based authoring | Version control workflows (Git) | API documentation (REST, OpenAPI/Swagger) | Developer tooling & API testing | Visual design tools | SEO, GEO optimization frameworks | AI-assisted doc workflows
-  </p> //*/}
-</div> 
-
-
-        </div>
-      </div>
-    </header>
-  );
-}
+import React from "react";
+import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
+import styles from "./index.module.css";
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Search & AI Technical Documentation"
-      description="Developer-focused documentation on search systems, vector databases, and Retrieval-Augmented Generation (RAG).">
-      <HomepageHeader />
-      <main className="container margin-vert--lg">
-  <p>
-    <strong>Tech stack:</strong> Docs-as-Code tools 
-    | Markdown-based authoring 
-    | Version control workflows (Git) | API documentation (REST, OpenAPI/Swagger) | Developer tooling & API testing | Visual design tools | SEO, GEO optimization frameworks | AI-assisted doc workflows
-  </p>
-</main>
+      title="Sujatha R"
+      description="Senior Technical Writer focusing on cloud, APIs, and AI/ML workflows."
+    >
+      <main>
 
+        {/* HERO — Clean, neutral */}
+        <section className={styles.hero}>
+          <div className={styles.heroInner}>
+            <h1 className={styles.heroTitle}>Sujatha R</h1>
+
+            <p className={styles.heroKicker}>
+              10+ years translating complex cloud and AI systems into clear, developer-ready docs.
+            </p>
+
+            <p className={styles.heroBody}>
+              I’m a Senior Technical Writer building developer-first documentation across
+              cloud, APIs, and AI/ML workflows. I partner with engineering and product teams to craft clear, task-driven
+              docs: reference guides, concept explainers, and architecture decoders to help
+              users succeed faster.
+            </p>
+
+            <div className={styles.heroCtas}>
+              <Link
+                className={`button button--primary button--lg ${styles.primaryBtn}`}
+                to="/portfolio"
+              >
+                View My Portfolio
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Soft divider */}
+        <div className={styles.divider} />
+
+        {/* TECH STACK */}
+        <section className={styles.section}>
+          <div className={styles.techStack}>
+            <p className={styles.techHeading}>
+              <strong>Tech stack:</strong>
+            </p>
+
+            <ul className={styles.techList}>
+              <li>Docs-as-Code tools</li>
+              <li>Markdown-based authoring</li>
+              <li>Version control workflows (Git)</li>
+              <li>API documentation (REST, OpenAPI/Swagger)</li>
+              <li>Developer tooling &amp; API testing</li>
+              <li>Visual design tools</li>
+              <li>SEO and content optimization frameworks</li>
+              <li>AI-assisted doc workflows</li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
     </Layout>
   );
 }
