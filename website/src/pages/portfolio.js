@@ -7,27 +7,27 @@ const cards = [
   {
     title: "AI/ML Docs",
     description: "Documentation focused on embeddings, LLM integration, and AI workflows.",
-    to: "/aiml-docs",
+    to: "/aiml/intro",
   },
   {
     title: "Docs",
     description: "Task-driven guides, conceptual explainers, and developer onboarding content.",
-    to: "/docs",
+    to: "/docs/intro",
   },
   {
     title: "APIs",
     description: "API reference samples, OpenAPI structure, and developer experience patterns.",
-    to: "/apis",
+    to: "/apis/intro",
   },
   {
     title: "Architecture",
     description: "Architecture narratives and diagrams that explain how systems work end-to-end.",
-    to: "/architecture",
+    to: "/architecture/intro",
   },
   {
     title: "Content Strategy",
-    description: "Content planning, SEO-led doc strategy, and technical content systems.",
-    to: "/content-strategy",
+    description: "Content planning, SEO and GEO-led doc strategy, and technical content systems.",
+    to: "/strategy/intro",
   },
 ];
 

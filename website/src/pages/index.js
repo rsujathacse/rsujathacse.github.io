@@ -17,7 +17,7 @@ export default function Home() {
             <h1 className={styles.heroTitle}>Sujatha R</h1>
 
             <p className={styles.heroKicker}>
-              10+ years translating complex cloud and AI systems into clear, developer-ready docs.
+              10+ years crafting complex cloud and AI systems into clear, developer-ready docs.
             </p>
 
             <p className={styles.heroBody}>
@@ -32,7 +32,7 @@ export default function Home() {
                 className={`button button--primary button--lg ${styles.primaryBtn}`}
                 to="/portfolio"
               >
-                View My Portfolio
+                View my portfolio
               </Link>
             </div>
           </div>

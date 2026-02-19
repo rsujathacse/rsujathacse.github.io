@@ -96,9 +96,6 @@ export default function Experience() {
             <p className={styles.objective}>
               Accomplished Senior Technical Writer with 10+ years of experience creating clear, concise,
               and impactful documentation for technical and non-technical audiences.
-              <br />
-              Specialized in cloud + AI/ML communication—data pipelines, model workflows, observability,
-              and platform integrations—written with accessibility-first, task-driven clarity.
             </p>
 
             {/* EXPERIENCE (from resume) */}
@@ -108,9 +105,8 @@ export default function Experience() {
               location="Remote, India"
               dates="Jan 2024 – Present"
               bullets={[
-                "Authored 70+ long-form technical articles; several rank on page 1 for competitive cloud and AI keywords, with multiple pieces entering top signup-driven UVEC contributors.",
-                "Led accessibility-first documentation using style guides and task-driven how-to tutorials.",
-                "Applied cloud + AI/ML fundamentals to accurately document complex systems (data pipelines, model workflows, platform integrations).",
+                "Authored 70+ long-form technical articles; several rank on page 1 for competitive cloud and AI keywords and entering top signup-driven UVEC contributors.",
+                "Applied cloud and AI/ML fundamentals to accurately document complex systems with data pipelines, model workflows, platform integrations.",
               ]}
             />
 

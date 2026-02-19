@@ -112,47 +112,28 @@ const config = {
           {to: '/architecture/intro', label: 'Architecture', position: 'left'},
           {to: '/strategy/intro', label: 'Content Strategy', position: 'left'},
           {to: '/experience', label: 'Experience', position: 'left'},
-          {
-            href: 'https://github.com/rsujathacse/sujatha-portfolio',
-            label: 'GitHub',
-            position: 'right',
-          },
+        
         ],
       },
 
- footer: {
-    style: 'dark',
-    links: [
-      {
-        title: 'Connect',
-        items: [
-          {
-            label: 'LinkedIn',
-            href: 'https://www.linkedin.com/in/rsujathatech/',
-          },
-          {
-            label: 'GitHub',
-            href: 'https://github.com/rsujathacse/sujatha-portfolio',
-          },
-          {
-            label: 'Email',
-            href: 'mailto:rsujathacse@gmail.com',
-          },
-        ],
-      },
-      {
-        title: 'My Talk(s)',
-        items: [
-          {
-            label: 'Writing the Future',
-            to: '/talks/writing-the-future',
-          },
-        ],
-      },
-    ],
-    copyright: `Writing what’s needed. Designing for how it’s read.  
-    © ${new Date().getFullYear()} Sujatha R`,
-  },
+footer: {
+  style: "dark",
+  links: [
+    {
+      items: [
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/rsujathatech/" },
+        { label: "GitHub", href: "https://github.com/rsujathacse" },
+        { label: "Email", href: "mailto:rsujathacse@gmail.com" },
+        { label: "My talk(s)", to: "/talks/writing-the-future" },
+         { label: `© ${new Date().getFullYear()} Sujatha R`, href: "#" },
+      ],
+    },
+  ],
+
+},
+
+
+
 
       prism: {
         theme: prismThemes.github,
