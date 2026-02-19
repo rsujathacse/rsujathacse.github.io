@@ -1,0 +1,39 @@
+.sidebar {
+  position: sticky;
+  top: 88px; /* below navbar */
+  height: calc(100vh - 110px);
+  width: 240px;
+  background: #1f6a77; /* keep your teal */
+  border-radius: 16px;
+  padding: 18px 16px;
+  color: white;
+}
+
+.title {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  opacity: 0.95;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: block;
+  opacity: 0.95;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}

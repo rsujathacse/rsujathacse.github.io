@@ -17,11 +17,20 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-  className="button button--secondary button--lg"
-  to="/docs">
-  Explore Documentation →
-</Link>
+<div style={{ maxWidth: "860px", margin: "20px auto 0", lineHeight: 1.6 }}>
+  <p style={{ marginBottom: "14px", fontSize: "18px", textAlign: "left" }}>
+    I’m a Senior Technical Writer with 10+ years of experience building
+    developer-first documentation across cloud, APIs, and AI/ML workflows. I
+    partner with engineering and product teams to ship clear, task-driven
+    docs—reference guides, conceptual explainers, and architecture
+    narratives—that reduce support load and help users succeed faster.
+  </p>
+
+  {/* ✅ MAIN CONTENT // <p style={{ margin: 0, fontSize: "16px", opacity: 0.95 }}>
+    <strong>Tech stack:</strong> Docs-as-Code tools | Markdown-based authoring | Version control workflows (Git) | API documentation (REST, OpenAPI/Swagger) | Developer tooling & API testing | Visual design tools | SEO, GEO optimization frameworks | AI-assisted doc workflows
+  </p> //*/}
+</div> 
+
 
         </div>
       </div>
@@ -38,12 +47,9 @@ export default function Home() {
       <HomepageHeader />
       <main className="container margin-vert--lg">
   <p>
-    I design developer-first documentation for search engines, vector databases,
-    and AI-powered retrieval systems.
-  </p>
-  <p>
-    This portfolio demonstrates conceptual guides, API documentation samples,
-    and architecture deep dives for modern Search + AI platforms.
+    <strong>Tech stack:</strong> Docs-as-Code tools 
+    | Markdown-based authoring 
+    | Version control workflows (Git) | API documentation (REST, OpenAPI/Swagger) | Developer tooling & API testing | Visual design tools | SEO, GEO optimization frameworks | AI-assisted doc workflows
   </p>
 </main>
 

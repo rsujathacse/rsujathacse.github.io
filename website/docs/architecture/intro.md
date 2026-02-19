@@ -1,6 +1,8 @@
 ---
 title: Architecture
 sidebar_position: 1
+pagination_next: null
+pagination_prev: null
 ---
 Deep-dive architectural docs with system design, observability pipelines, data flow, and infrastructure patterns.
 
@@ -24,7 +26,7 @@ Deep-dive architectural docs with system design, observability pipelines, data f
 
         <a
           className="button button--primary"
-          href="/files/lfx-prometheus-otel-sujathar.pdf"
+          href="/architecture/prometheus-otel"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -34,4 +36,3 @@ Deep-dive architectural docs with system design, observability pipelines, data f
     </div>
   </div>
 </div>
-

@@ -4,6 +4,8 @@ pagination_next: null
 pagination_prev: null
 ---
 
+import DoArticlesCard from '@site/src/components/DoArticlesCard';
+
 # Documentation
 
 Conceptual guides and implementation-focused tutorials.
@@ -15,6 +17,7 @@ Conceptual guides and implementation-focused tutorials.
     borderRadius: "12px",
     padding: "20px",
     width: "320px",
+    height: "fit-content",
     boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
   }}>
     <img 
@@ -32,5 +35,7 @@ Conceptual guides and implementation-focused tutorials.
       Read article →
     </a>
   </div>
+
+  <DoArticlesCard />
 
 </div>

@@ -1,1 +1,6 @@
-module.exports = { architectureSidebar: ['intro'], };
+module.exports = {
+  architectureSidebar: [
+    'intro',
+    'prometheus-otel',
+  ],
+};

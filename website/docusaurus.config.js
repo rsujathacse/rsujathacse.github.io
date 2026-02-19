@@ -10,6 +10,7 @@ const config = {
     '10+ years translating complex cloud and AI systems into clear, developer-ready docs.',
   favicon: 'img/favicon.ico',
 
+
   future: {
     v4: true,
   },
@@ -105,12 +106,12 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {to: '/aiml/intro', label: 'AI/ML Docs', position: 'left'},
           {to: '/docs/intro', label: 'Docs', position: 'left'},
           {to: '/apis/intro', label: 'APIs', position: 'left'},
           {to: '/architecture/intro', label: 'Architecture', position: 'left'},
-          {to: '/aiml/intro', label: 'AI/ML Docs', position: 'left'},
           {to: '/strategy/intro', label: 'Content Strategy', position: 'left'},
-          {to: '/about', label: 'About', position: 'left'},
+          {to: '/experience', label: 'Experience', position: 'left'},
           {
             href: 'https://github.com/rsujathacse/sujatha-portfolio',
             label: 'GitHub',
@@ -119,30 +120,39 @@ const config = {
         ],
       },
 
-      footer: {
-        style: 'dark',
-        links: [
+ footer: {
+    style: 'dark',
+    links: [
+      {
+        title: 'Connect',
+        items: [
           {
-            title: 'Portfolio',
-            items: [
-              {label: 'Docs', to: '/docs/intro'},
-              {label: 'APIs', to: '/apis/intro'},
-              {label: 'Architecture', to: '/architecture/intro'},
-              {label: 'AI/ML Docs', to: '/aiml/intro'},
-              {label: 'Content Strategy', to: '/content-strategy',  position: 'left',},
-              {label: 'About', to: '/about'},
-            ],
+            label: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/rsujathatech/',
           },
           {
-            title: 'Links',
-            items: [
-              {label: 'GitHub', href: 'https://github.com/rsujathacse'},
-              // Add LinkedIn later
-            ],
+            label: 'GitHub',
+            href: 'https://github.com/rsujathacse/sujatha-portfolio',
+          },
+          {
+            label: 'Email',
+            href: 'mailto:rsujathacse@gmail.com',
           },
         ],
-        copyright: `© ${new Date().getFullYear()} Sujatha R. Built with Docusaurus.`,
       },
+      {
+        title: 'My Talk(s)',
+        items: [
+          {
+            label: 'Writing the Future',
+            to: '/talks/writing-the-future',
+          },
+        ],
+      },
+    ],
+    copyright: `Writing what’s needed. Designing for how it’s read.  
+    © ${new Date().getFullYear()} Sujatha R`,
+  },
 
       prism: {
         theme: prismThemes.github,
