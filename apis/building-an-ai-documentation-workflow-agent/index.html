@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-apis docs-version-current docs-doc-page docs-doc-id-building-an-ai-documentation-workflow-agent" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Building an AI Documentation Workflow Agent | I write technical docs that move products from evaluation → adoption → revenue.</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://rsujathacse.github.io/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://rsujathacse.github.io/img/social-card.png"><meta data-rh="true" property="og:url" content="https://rsujathacse.github.io/apis/building-an-ai-documentation-workflow-agent/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-apis-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-apis-current"><meta data-rh="true" property="og:title" content="Building an AI Documentation Workflow Agent | I write technical docs that move products from evaluation → adoption → revenue."><meta data-rh="true" name="description" content="This project explores how AI can assist documentation systems, without making documentation dependent on AI availability."><meta data-rh="true" property="og:description" content="This project explores how AI can assist documentation systems, without making documentation dependent on AI availability."><link data-rh="true" rel="icon" href="/img/sujathar.png"><link data-rh="true" rel="canonical" href="https://rsujathacse.github.io/apis/building-an-ai-documentation-workflow-agent/"><link data-rh="true" rel="alternate" href="https://rsujathacse.github.io/apis/building-an-ai-documentation-workflow-agent/" hreflang="en"><link data-rh="true" rel="alternate" href="https://rsujathacse.github.io/apis/building-an-ai-documentation-workflow-agent/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Building an AI Documentation Workflow Agent","item":"https://rsujathacse.github.io/apis/building-an-ai-documentation-workflow-agent"}]}</script><link rel="stylesheet" href="/assets/css/styles.a3638ebf.css">
+<script src="/assets/js/runtime~main.8d2940e5.js" defer="defer"></script>
+<script src="/assets/js/main.e58cd642.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>document.documentElement.setAttribute("data-theme","light"),document.documentElement.setAttribute("data-theme-choice","light"),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/sujathar.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/sujathar.png" alt="Sujatha R writer image" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/sujathar.png" alt="Sujatha R writer image" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Sujatha R</b></a><a class="navbar__item navbar__link" href="/aiml/intro/">AI/ML Docs</a><a class="navbar__item navbar__link" href="/docs/intro/">Docs</a><a class="navbar__item navbar__link" href="/apis/intro/">APIs</a><a class="navbar__item navbar__link" href="/experience/">Experience</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/apis/intro/"><span title="APIs" class="linkLabel_WmDU">APIs</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/apis/secure-security-event-ingestion-api/"><span title="Designing and Documenting a Secure Security Event Ingestion API" class="linkLabel_WmDU">Designing and Documenting a Secure Security Event Ingestion API</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/apis/building-an-ai-documentation-workflow-agent/"><span title="Building an AI Documentation Workflow Agent" class="linkLabel_WmDU">Building an AI Documentation Workflow Agent</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Building an AI Documentation Workflow Agent</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Building an AI Documentation Workflow Agent</h1></header>
+<p>This project explores how AI can assist documentation systems, without making documentation dependent on AI availability.</p>
+<p>Product teams ship features quickly, but documentation  lags behind.</p>
+<p>Jira tickets contain implementation details, edge cases, rollout notes, and tracking events. However, they rarely translate directly into documentation-ready structure. Technical writers must manually interpret tickets, extract user journeys, define setup steps, and formalize edge cases before documentation can even begin.</p>
+<p>This manual translation layer slows documentation velocity and introduces structural inconsistency across teams.</p>
+<p>In this project, I built an AI-powered documentation workflow agent that transforms structured Jira tickets into documentation-ready Markdown blueprints.</p>
+<p>Instead of generating final documentation, the system generates structured documentation plans — giving writers a consistent, reusable framework to refine and publish.</p>
+<p>The goal is not to replace writers.<br>
+<!-- -->The goal is to automate the repetitive translation layer between product tickets and documentation architecture.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scope">Scope<a href="#scope" class="hash-link" aria-label="Direct link to Scope" title="Direct link to Scope" translate="no">​</a></h2>
+<p>This system:</p>
+<ul>
+<li class="">Accepts structured Jira ticket content via an API</li>
+<li class="">Converts the ticket into a standardized documentation blueprint</li>
+<li class="">Generates a Markdown file automatically</li>
+<li class="">Falls back to a deterministic template when AI quota is unavailable</li>
+</ul>
+<p>The result is a documentation workflow that is:</p>
+<ul>
+<li class="">Structured</li>
+<li class="">Repeatable</li>
+<li class="">Automation-friendly</li>
+<li class="">Resilient to AI service failures</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="understanding-the-scenario">Understanding the scenario<a href="#understanding-the-scenario" class="hash-link" aria-label="Direct link to Understanding the scenario" title="Direct link to Understanding the scenario" translate="no">​</a></h2>
+<p>Documentation maturity is not about writing faster.</p>
+<p>It is about building systems that make documentation predictable, structured, and scalable.</p>
+<p>By automating ticket-to-blueprint transformation:</p>
+<ul>
+<li class="">Writers start from architecture instead of raw notes</li>
+<li class="">Documentation structure remains consistent across teams</li>
+<li class="">Review cycles become clearer</li>
+<li class="">Edge cases are captured early</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites">Prerequisites<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites" translate="no">​</a></h2>
+<p>Before building or running this project, you should have:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-technical-requirements">1. Technical Requirements<a href="#1-technical-requirements" class="hash-link" aria-label="Direct link to 1. Technical Requirements" title="Direct link to 1. Technical Requirements" translate="no">​</a></h3>
+<ul>
+<li class="">Python 3.10+ (tested with Python 3.12)</li>
+<li class="">pip</li>
+<li class="">Virtual environment support (<code>venv</code>)</li>
+<li class="">Basic familiarity with FastAPI</li>
+<li class="">curl (for API testing)</li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li class="">OpenAI API key (only required if using AI generation mode)</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-infrastructure-requirements">2. Infrastructure requirements<a href="#2-infrastructure-requirements" class="hash-link" aria-label="Direct link to 2. Infrastructure requirements" title="Direct link to 2. Infrastructure requirements" translate="no">​</a></h3>
+<ul>
+<li class="">A Linux environment (Ubuntu 24.04 used in this project)</li>
+<li class="">Public or local server capable of running FastAPI</li>
+<li class="">Port access (default: 8002)</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-knowledge-requirements">3. Knowledge requirements<a href="#3-knowledge-requirements" class="hash-link" aria-label="Direct link to 3. Knowledge requirements" title="Direct link to 3. Knowledge requirements" translate="no">​</a></h3>
+<ul>
+<li class="">Understanding of REST APIs</li>
+<li class="">Familiarity with Swagger/OpenAPI</li>
+<li class="">Basic knowledge of Jira ticket structures</li>
+<li class="">Markdown formatting</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tech-stack-and-infrastructure-used-in-this-project">Tech stack and infrastructure used in this project<a href="#tech-stack-and-infrastructure-used-in-this-project" class="hash-link" aria-label="Direct link to Tech stack and infrastructure used in this project" title="Direct link to Tech stack and infrastructure used in this project" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>DigitalOcean Droplet (Ubuntu 24.04 LTS) for hosting the API service</p>
+</li>
+<li class="">
+<p>Python 3.12 runtime environment</p>
+</li>
+<li class="">
+<p>FastAPI for building the REST API</p>
+</li>
+<li class="">
+<p>Uvicorn ASGI server for running the application</p>
+</li>
+<li class="">
+<p>Virtual environment (venv) for dependency isolation</p>
+</li>
+<li class="">
+<p>OpenAI API for AI-assisted documentation plan generation</p>
+</li>
+<li class="">
+<p>Deterministic fallback generator for AI-resilient operation</p>
+</li>
+<li class="">
+<p>Markdown file generation for structured output</p>
+</li>
+<li class="">
+<p>Swagger UI (OpenAPI) for interactive API testing</p>
+</li>
+<li class="">
+<p><code>curl</code> for command-line API validation</p>
+</li>
+<li class="">
+<p>Jira for ticket input and project details</p>
+</li>
+<li class="">
+<p>Git and GitHub for version control</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implementation-walkthrough">Implementation walkthrough<a href="#implementation-walkthrough" class="hash-link" aria-label="Direct link to Implementation walkthrough" title="Direct link to Implementation walkthrough" translate="no">​</a></h2>
+<p>In this section, we will build the AI documentation workflow agent step by step. The goal is to create a working API service that converts structured Jira tickets into Markdown blueprints.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-provision-the-infrastructure">Step 1: Provision the infrastructure<a href="#step-1-provision-the-infrastructure" class="hash-link" aria-label="Direct link to Step 1: Provision the infrastructure" title="Direct link to Step 1: Provision the infrastructure" translate="no">​</a></h3>
+<p>Set up a Linux-based server environment capable of running a Python API service. In this project, a DigitalOcean Droplet running Ubuntu 24.04 LTS was used.</p>
+<p>Ensure the server has:</p>
+<ul>
+<li class="">Python 3.10+ installed</li>
+<li class=""><code>pip</code> available</li>
+<li class="">Network access on the desired port (used: <code>8002</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-create-and-activate-a-virtual-environment">Step 2: Create and activate a virtual environment<a href="#step-2-create-and-activate-a-virtual-environment" class="hash-link" aria-label="Direct link to Step 2: Create and activate a virtual environment" title="Direct link to Step 2: Create and activate a virtual environment" translate="no">​</a></h3>
+<p>Create an isolated Python environment to manage dependencies cleanly. This keeps dependencies isolated and the setup reproducible.</p>
+<ul>
+<li class="">Create a project directory</li>
+<li class="">Initialize a virtual environment (<code>venv</code>)</li>
+<li class="">Activate the environment</li>
+<li class="">Install required packages (<code>fastapi</code>, <code>uvicorn</code>, <code>requests</code>, <code>python-dotenv</code>, <code>pydantic</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-build-the-fastapi-application">Step 3: Build the FastAPI application<a href="#step-3-build-the-fastapi-application" class="hash-link" aria-label="Direct link to Step 3: Build the FastAPI application" title="Direct link to Step 3: Build the FastAPI application" translate="no">​</a></h3>
+<p>Create a FastAPI application with:</p>
+<ul>
+<li class="">A <code>POST /plan</code> endpoint</li>
+<li class="">Request validation for structured ticket input</li>
+<li class="">Logic to transform the ticket into a documentation blueprint</li>
+</ul>
+<p>At a high level, the endpoint will:</p>
+<ol>
+<li class="">Accept <code>ticket_key</code> and <code>ticket_content</code></li>
+<li class="">Generate structured Markdown output</li>
+<li class="">Save the output as a <code>.md</code> file</li>
+<li class="">Return the generated filename and a preview in the response</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-4-integrate-ai-generation">Step 4: Integrate AI generation<a href="#step-4-integrate-ai-generation" class="hash-link" aria-label="Direct link to Step 4: Integrate AI generation" title="Direct link to Step 4: Integrate AI generation" translate="no">​</a></h3>
+<p>Add OpenAI integration to improve documentation plan generation. This supports more dynamic blueprints based on ticket content.</p>
+<p>The system should:</p>
+<ul>
+<li class="">Use the OpenAI API when a valid API key is present</li>
+<li class="">Generate structured Markdown output using a prompt template</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-5-implement-deterministic-fallback-logic">Step 5: Implement deterministic fallback logic<a href="#step-5-implement-deterministic-fallback-logic" class="hash-link" aria-label="Direct link to Step 5: Implement deterministic fallback logic" title="Direct link to Step 5: Implement deterministic fallback logic" translate="no">​</a></h3>
+<p>To keep the workflow resilient, implement fallback behavior.</p>
+<p>If:</p>
+<ul>
+<li class="">No API key is present, or</li>
+<li class="">The AI API returns quota/network errors</li>
+</ul>
+<p>Then the system automatically switches to a predefined deterministic blueprint template.</p>
+<p>This ensures documentation workflows remain operational even when AI services are unavailable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-6-generate-markdown-output">Step 6: Generate Markdown output<a href="#step-6-generate-markdown-output" class="hash-link" aria-label="Direct link to Step 6: Generate Markdown output" title="Direct link to Step 6: Generate Markdown output" translate="no">​</a></h3>
+<p>Write the generated blueprint to a Markdown file with a timestamped filename:</p>
+<ul>
+<li class="">Persistent output</li>
+<li class="">Traceability across runs</li>
+<li class="">Easy handoff into documentation systems</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-7-test-using-swagger-ui-and-curl">Step 7: Test using Swagger UI and curl<a href="#step-7-test-using-swagger-ui-and-curl" class="hash-link" aria-label="Direct link to Step 7: Test using Swagger UI and curl" title="Direct link to Step 7: Test using Swagger UI and curl" translate="no">​</a></h3>
+<p>Validate the service end-to-end by:</p>
+<ul>
+<li class="">Accessing <code>/docs</code> (Swagger UI)</li>
+<li class="">Sending a POST request to <code>/plan</code></li>
+<li class="">Verifying successful file generation</li>
+<li class="">Confirming the JSON response contains the filename and preview</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implementation">Implementation<a href="#implementation" class="hash-link" aria-label="Direct link to Implementation" title="Direct link to Implementation" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-prepare-a-structured-jira-ticket">Step 1: Prepare a structured Jira ticket<a href="#step-1-prepare-a-structured-jira-ticket" class="hash-link" aria-label="Direct link to Step 1: Prepare a structured Jira ticket" title="Direct link to Step 1: Prepare a structured Jira ticket" translate="no">​</a></h3>
+<p>The documentation workflow agent begins with a structured product ticket. The more structured the ticket, the better the generated documentation blueprint. Select or create a Jira project and define a feature ticket that includes:</p>
+<ul>
+<li class="">Problem statement</li>
+<li class="">Goal</li>
+<li class="">User flow or UX changes</li>
+<li class="">Rollout or experimentation notes</li>
+<li class="">Tracking events</li>
+<li class="">Edge cases</li>
+<li class="">Acceptance criteria</li>
+</ul>
+<p>In this project, the ticket <code>KAN-4</code> (&quot;Consent-aware event tracking for experiment goals&quot;) was used as the input example.</p>
+<p><img decoding="async" loading="lazy" alt="Structured Jira ticket used as input" src="/assets/images/jira-structured-ticket-430eef566ab8826b5d3be1e11c325f57.png" width="1917" height="973" class="img_ev3q"></p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-set-up-the-server-environment">Step 2: Set up the server environment<a href="#step-2-set-up-the-server-environment" class="hash-link" aria-label="Direct link to Step 2: Set up the server environment" title="Direct link to Step 2: Set up the server environment" translate="no">​</a></h3>
+<p>The first step is to provision a Linux-based server capable of running a Python API service. In this project, a DigitalOcean Droplet running Ubuntu 24.04 LTS was used as the execution environment.
+<img decoding="async" loading="lazy" alt="Python virtual environment activated with FastAPI installed" src="/assets/images/digitalocean-droplet-6f4e7ca57f212c313fd43e20e85e0655.png" width="1126" height="820" class="img_ev3q">
+After provisioning the server:</p>
+<ul>
+<li class="">Create a project directory (e.g., <code>ai-doc-workflow-agent</code>)</li>
+<li class="">Create and activate a virtual environment using <code>venv</code> (This establishes a clean, isolated runtime for the documentation workflow agent.)</li>
+<li class="">Install required dependencies:<!-- -->
+<ul>
+<li class=""><code>fastapi</code></li>
+<li class=""><code>uvicorn</code></li>
+<li class=""><code>requests</code></li>
+<li class=""><code>python .env</code></li>
+<li class=""><code>pydantic</code></li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Python virtual environment activated with FastAPI installed" src="/assets/images/venv-fastapi-setup-2a5e8d2efc0b85613e35b5c944a74466.png" width="1052" height="284" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-create-the-fastapi-application-and-define-the-plan-endpoint">Step 3: Create the FastAPI application and define the <code>/plan</code> endpoint<a href="#step-3-create-the-fastapi-application-and-define-the-plan-endpoint" class="hash-link" aria-label="Direct link to step-3-create-the-fastapi-application-and-define-the-plan-endpoint" title="Direct link to step-3-create-the-fastapi-application-and-define-the-plan-endpoint" translate="no">​</a></h3>
+<p>With the environment ready, the next step is to build the API service that powers the documentation workflow. Create a <code>main.py</code> file and initialize a FastAPI application. The service exposes a single endpoint:</p>
+<p>POST <code>/plan</code></p>
+<p>This endpoint:</p>
+<ul>
+<li class="">Accepts structured Jira ticket content</li>
+<li class="">Validates the request using a Pydantic model</li>
+<li class="">Transforms the ticket into a documentation blueprint</li>
+<li class="">Writes the output to a timestamped Markdown file</li>
+<li class="">Returns the generated filename and a preview in the JSON response</li>
+</ul>
+<p>The request body structure:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;ticket_key&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;KAN-4&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;ticket_content&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;Structured Jira ticket content...&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p>The response structure:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;generated_file&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;KAN-4_doc_plan_20260225183130.md&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;preview&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;# Documentation Plan — KAN-4...&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><img decoding="async" loading="lazy" alt="The FastAPI service running with Swagger UI" src="/assets/images/swagger-ui-d2765380af96aa6a822d2ff3f475c57e.png" width="1416" height="574" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-4-add-ai-generation-and-deterministic-fallback-logic">Step 4: Add AI generation and deterministic fallback logic<a href="#step-4-add-ai-generation-and-deterministic-fallback-logic" class="hash-link" aria-label="Direct link to Step 4: Add AI generation and deterministic fallback logic" title="Direct link to Step 4: Add AI generation and deterministic fallback logic" translate="no">​</a></h3>
+<p>With the <code>/plan</code> endpoint in place, the next step is to implement the logic that converts the Jira ticket into a structured documentation blueprint.</p>
+<p>This step has two execution paths:</p>
+<ol>
+<li class=""><strong>AI-assisted generation (optional)</strong></li>
+<li class=""><strong>Deterministic fallback generation (mandatory)</strong></li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ai-assisted-generation-optional">AI-assisted generation (optional)<a href="#ai-assisted-generation-optional" class="hash-link" aria-label="Direct link to AI-assisted generation (optional)" title="Direct link to AI-assisted generation (optional)" translate="no">​</a></h4>
+<p>If a valid <code>OPENAI_API_KEY</code> is available, the service:</p>
+<ul>
+<li class="">Sends the structured Jira ticket content to the OpenAI API</li>
+<li class="">Uses a prompt template to request a structured documentation blueprint</li>
+<li class="">Receives Markdown-formatted output</li>
+<li class="">Returns the generated plan</li>
+</ul>
+<p>This helps dynamic blueprint generation based on ticket complexity.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="deterministic-fallback-logic-required">Deterministic fallback logic (required)<a href="#deterministic-fallback-logic-required" class="hash-link" aria-label="Direct link to Deterministic fallback logic (required)" title="Direct link to Deterministic fallback logic (required)" translate="no">​</a></h4>
+<p>To ensure the system remains operational when service automatically switches to a predefined blueprint template.:</p>
+<ul>
+<li class="">No API key is configured, or</li>
+<li class="">API quota is exceeded, or</li>
+<li class="">Network/API errors occur</li>
+</ul>
+<p>The fallback guarantees that documentation workflows do not depend on external AI availability.:</p>
+<ul>
+<li class="">Generates a structured documentation plan</li>
+<li class="">Maintains consistent section formatting</li>
+<li class="">Ensures predictable output structure</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-fallback-matters">Why fallback matters<a href="#why-fallback-matters" class="hash-link" aria-label="Direct link to Why fallback matters" title="Direct link to Why fallback matters" translate="no">​</a></h4>
+<p>Resilient systems do not fail when dependencies fail.</p>
+<p>By implementing deterministic fallback logic, the documentation workflow:</p>
+<ul>
+<li class="">Remains reliable</li>
+<li class="">Avoids blocking writers</li>
+<li class="">Maintains consistent structure</li>
+<li class="">Demonstrates production-aware system design</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Terminal showing successful POST request to /plan with 200 OK" src="/assets/images/post-plan-success-4b3967caed50bd62bca8a051269e3e5d.png" width="1124" height="145" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-5-run-the-service-and-validate-using-curl">Step 5: Run the service and validate using curl<a href="#step-5-run-the-service-and-validate-using-curl" class="hash-link" aria-label="Direct link to Step 5: Run the service and validate using curl" title="Direct link to Step 5: Run the service and validate using curl" translate="no">​</a></h3>
+<p>With the application logic implemented, the next step is to run the FastAPI service and verify the workflow using a command-line request.</p>
+<p>Start the application using Uvicorn:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">uvicorn main:app --host 0.0.0.0 --port 8002</span><br></span></code></pre></div></div>
+<p>Once the server is running, create a <code>payload.json</code> file containing the structured Jira ticket content:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;ticket_key&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;KAN-4&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;ticket_content&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;Structured Jira ticket content...&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p>Send a POST request to the <code>/plan</code> endpoint using <code>curl</code>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"> curl -X POST &quot;http://127.0.0.1:8002/plan&quot; \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  -H &quot;Content-Type: application/json&quot; \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  --data-binary @payload.json</span><br></span></code></pre></div></div>
+<p>Confirm the following:</p>
+<ul>
+<li class="">
+<p>A 200 OK response is returned</p>
+</li>
+<li class="">
+<p>The JSON response includes the generated filename</p>
+</li>
+<li class="">
+<p>A timestamped Markdown file is created in the project directory</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Terminal showing success with 200 OK" src="/assets/images/uvicorn-8002-e72538124df37e938be79f83ab872f3b.png" width="823" height="177" class="img_ev3q"></p>
+<p>You can verify the contents of the generated file:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">head -n 40 KAN-4_doc_plan_&lt;timestamp&gt;.md</span><br></span></code></pre></div></div>
+<p><img decoding="async" loading="lazy" alt="Markdown file content" src="/assets/images/markdown-2518366885a7560e6208a0870095068c.png" width="1838" height="823" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="assumptions">Assumptions<a href="#assumptions" class="hash-link" aria-label="Direct link to Assumptions" title="Direct link to Assumptions" translate="no">​</a></h2>
+<p>The current implementation operates under the following assumptions:</p>
+<ul>
+<li class="">Jira tickets are already structured with clearly defined sections (problem, goal, tracking, edge cases, etc.).</li>
+<li class="">The input ticket content is manually extracted and passed into the API as JSON.</li>
+<li class="">Documentation blueprints are generated as Markdown files stored locally.</li>
+<li class="">No authentication or access control is implemented for the API endpoint.</li>
+<li class="">The system runs in a trusted environment (e.g., internal server or development environment).</li>
+<li class="">The fallback template structure is acceptable when AI generation is unavailable.</li>
+<li class="">There is no versioning or deduplication mechanism for generated files.</li>
+<li class="">The service is intended for documentation planning, not final publish-ready documentation.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future-scope">Future scope<a href="#future-scope" class="hash-link" aria-label="Direct link to Future scope" title="Direct link to Future scope" translate="no">​</a></h2>
+<p>This project demonstrates a foundational documentation workflow automation service. Many improvements are needed to make it a more production-ready documentation system.</p>
+<ul>
+<li class="">
+<p><strong>Batch processing of multiple Jira tickets</strong><br>
+<!-- -->Support generating documentation plans for multiple tickets in a single request.</p>
+</li>
+<li class="">
+<p><strong>Direct Jira API integration</strong><br>
+<!-- -->Automatically fetch ticket content using Jira APIs instead of manually passing structured JSON.</p>
+</li>
+<li class="">
+<p><strong>GitHub integration for automatic pull requests</strong><br>
+<!-- -->Automatically commit generated Markdown files to a documentation repository and open pull requests.</p>
+</li>
+<li class="">
+<p><strong>Mode visibility in API response</strong><br>
+<!-- -->Explicitly return whether the system operated in AI mode or fallback mode.</p>
+</li>
+<li class="">
+<p><strong>Customizable blueprint templates</strong><br>
+<!-- -->Allow teams to define documentation templates based on product area (API docs, SDK docs, feature docs, etc.).</p>
+</li>
+<li class="">
+<p><strong>Structured output validation</strong><br>
+<!-- -->Enforce consistent section presence and schema validation on generated Markdown.</p>
+</li>
+<li class="">
+<p><strong>Role-based documentation plans</strong><br>
+<!-- -->Generate variations of documentation blueprints tailored to technical writers, DevRel, or support teams.</p>
+</li>
+<li class="">
+<p><strong>Observability and logging</strong><br>
+<!-- -->Add structured logging and metrics to monitor usage patterns and generation success rates.</p>
+</li>
+<li class="">
+<p><strong>Containerization and deployment automation</strong><br>
+<!-- -->Package the service using Docker and deploy via CI/CD pipelines.</p>
+</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/apis/secure-security-event-ingestion-api/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Designing and Documenting a Secure Security Event Ingestion API</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#scope" class="table-of-contents__link toc-highlight">Scope</a></li><li><a href="#understanding-the-scenario" class="table-of-contents__link toc-highlight">Understanding the scenario</a></li><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites</a><ul><li><a href="#1-technical-requirements" class="table-of-contents__link toc-highlight">1. Technical Requirements</a></li><li><a href="#2-infrastructure-requirements" class="table-of-contents__link toc-highlight">2. Infrastructure requirements</a></li><li><a href="#3-knowledge-requirements" class="table-of-contents__link toc-highlight">3. Knowledge requirements</a></li></ul></li><li><a href="#tech-stack-and-infrastructure-used-in-this-project" class="table-of-contents__link toc-highlight">Tech stack and infrastructure used in this project</a></li><li><a href="#implementation-walkthrough" class="table-of-contents__link toc-highlight">Implementation walkthrough</a><ul><li><a href="#step-1-provision-the-infrastructure" class="table-of-contents__link toc-highlight">Step 1: Provision the infrastructure</a></li><li><a href="#step-2-create-and-activate-a-virtual-environment" class="table-of-contents__link toc-highlight">Step 2: Create and activate a virtual environment</a></li><li><a href="#step-3-build-the-fastapi-application" class="table-of-contents__link toc-highlight">Step 3: Build the FastAPI application</a></li><li><a href="#step-4-integrate-ai-generation" class="table-of-contents__link toc-highlight">Step 4: Integrate AI generation</a></li><li><a href="#step-5-implement-deterministic-fallback-logic" class="table-of-contents__link toc-highlight">Step 5: Implement deterministic fallback logic</a></li><li><a href="#step-6-generate-markdown-output" class="table-of-contents__link toc-highlight">Step 6: Generate Markdown output</a></li><li><a href="#step-7-test-using-swagger-ui-and-curl" class="table-of-contents__link toc-highlight">Step 7: Test using Swagger UI and curl</a></li></ul></li><li><a href="#implementation" class="table-of-contents__link toc-highlight">Implementation</a><ul><li><a href="#step-1-prepare-a-structured-jira-ticket" class="table-of-contents__link toc-highlight">Step 1: Prepare a structured Jira ticket</a></li><li><a href="#step-2-set-up-the-server-environment" class="table-of-contents__link toc-highlight">Step 2: Set up the server environment</a></li><li><a href="#step-3-create-the-fastapi-application-and-define-the-plan-endpoint" class="table-of-contents__link toc-highlight">Step 3: Create the FastAPI application and define the <code>/plan</code> endpoint</a></li><li><a href="#step-4-add-ai-generation-and-deterministic-fallback-logic" class="table-of-contents__link toc-highlight">Step 4: Add AI generation and deterministic fallback logic</a></li><li><a href="#step-5-run-the-service-and-validate-using-curl" class="table-of-contents__link toc-highlight">Step 5: Run the service and validate using curl</a></li></ul></li><li><a href="#assumptions" class="table-of-contents__link toc-highlight">Assumptions</a></li><li><a href="#future-scope" class="table-of-contents__link toc-highlight">Future scope</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.linkedin.com/in/rsujathatech/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/rsujathacse" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="mailto:rsujathacse@gmail.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Email<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a class="footer__link-item" href="/talks/writing-the-future/">My talk(s)</a></li><li class="footer__item"><a href="#" class="footer__link-item">© 2026 Sujatha R</a></li></ul></div></div></div></footer></div>
+</body>
+</html>
